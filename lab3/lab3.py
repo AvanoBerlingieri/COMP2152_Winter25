@@ -47,3 +47,4 @@ for j in range(1, 20, 2):
         print("Monster wins this round!")
     else:
         print("This round is a draw!")
+
