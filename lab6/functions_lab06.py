@@ -1,9 +1,44 @@
 # Import the random library to use for the dice later
 import random
+from os import linesep
+
 
 # Will the line below print when you import function.py into main.py?
 # print("Inside function.py")
+def save_game(winner, hero_name="", num_stars=0):
+    with open('save.txt', 'a') as file:
+        if winner == "hero":
+            file.write(f"Hero {hero_name} has killed the monster and gained {num_stars} stars.\n")
+        elif winner == "monster":
+            file.write(f"Monster killed the hero {hero_name}\n")
+    file.close()
 
+def load_game():
+    try:
+        with open('save.txt', 'r') as file:
+            print("    |    File is loading...")
+            lines = file.readlines()
+            if lines:
+                last_line = lines[-1].strip()
+                print(last_line)
+                return last_line
+    except FileNotFoundError:
+        print("    |    No previous game found, starting game fresh")
+        return None
+
+def adjust_combat_strength(combat_strength, m_combat_strength):
+    last_game = load_game()
+    if last_game:
+        if "Hero" in last_game and "gained" in last_game:
+            num_stars = int(last_game.split()[-2])
+            if num_stars > 3:
+                print("    |    Increasing the monster combat strength")
+                m_combat_strength += 1
+            elif "Monster killed the" in last_game:
+                print("    |    Increasing the hero combat strength")
+                combat_strength += 1
+        else:
+            print("    |    last game had no effect on Hero/Monster combat strength")
 
 # Lab 4: Question 4
 def use_loot(belt, health_points):
