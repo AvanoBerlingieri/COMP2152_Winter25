@@ -65,7 +65,7 @@ if input_valid and m_input_valid:
     combat_strength = int(combat_strength)
     m_combat_strength = int(m_combat_strength)
 
-    # Roll for player health points
+    # Roll for player health point
     input("Roll the dice for your health points (Press enter)")
     health_points = random.choice(big_dice_options)
     print("Player rolled " + str(health_points) + " health points")

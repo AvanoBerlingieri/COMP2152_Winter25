@@ -2,7 +2,7 @@
 import random
 
 
-# Hero's Attack Functions
+# Hero's Attack Function
 def hero_attacks(combat_strength, m_health_points):
     if combat_strength <= 0 or combat_strength >= 7:
         print("Hero cannot fight with 0 combat strength. Cannot exceed maximum strength of 6")
