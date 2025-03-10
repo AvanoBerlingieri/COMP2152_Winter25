@@ -19,7 +19,7 @@ file_object_TextIO = os.fdopen(file_handle, "w+")
 file_object_TextIO.write("Some string to write to this file")
 file_object_TextIO.flush()
 
-# window
+# windows
 # pid = 1
 pid = os.fork()
 if pid == 0:
