@@ -1,7 +1,9 @@
+from mammal import Mammal
 from person import Person
 from mammal import Mammal
 from puma import Puma
 from tick import Tick
+from heart import Heart
 
 print("--- Creating just a mammal object --- ")
 just_mammal = Mammal(5)
